@@ -20,19 +20,19 @@ training and testing data. It provides a harder test on unseen websites.
 | Metric | Result |
 |---|---:|
 | Majority baseline accuracy | 0.5730 |
-| Accuracy | 0.9949 |
-| Balanced accuracy | 0.9940 |
-| Phishing precision | 1.0000 |
-| Phishing recall | 0.9880 |
-| Phishing F1 score | 0.9939 |
-| ROC AUC | 0.9984 |
+| Accuracy | 0.8799 |
+| Balanced accuracy | 0.8649 |
+| Phishing precision | 0.9458 |
+| Phishing recall | 0.7625 |
+| Phishing F1 score | 0.8443 |
+| ROC AUC | 0.9305 |
 
 ## Confusion Matrix
 
 | Actual / Predicted | Legitimate | Phishing |
 |---|---:|---:|
-| Legitimate | 26,970 | 0 |
-| Phishing | 242 | 19,860 |
+| Legitimate | 26,091 | 879 |
+| Phishing | 4,775 | 15,327 |
 
 ## Interpretation
 

@@ -19,6 +19,9 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import FunctionTransformer
+
+from src.features import canonicalize_urls_for_model
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -51,9 +54,16 @@ def build_pipeline():
     """Create the text-processing and classification pipeline."""
 
     return Pipeline(
-        steps=[
-            (
-                "tfidf",
+    steps=[
+        (
+            "canonicalize_url",
+            FunctionTransformer(
+                canonicalize_urls_for_model,
+                validate=False,
+            ),
+        ),
+        (
+            "tfidf",
                 TfidfVectorizer(
                     analyzer="char",
                     ngram_range=(3, 5),

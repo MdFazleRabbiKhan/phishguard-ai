@@ -12,19 +12,19 @@
 | Metric | Result |
 |---|---:|
 | Majority baseline accuracy | 0.5729 |
-| Accuracy | 0.9952 |
-| Balanced accuracy | 0.9944 |
-| Phishing precision | 1.0000 |
-| Phishing recall | 0.9888 |
-| Phishing F1 score | 0.9944 |
-| ROC AUC | 0.9984 |
+| Accuracy | 0.8855 |
+| Balanced accuracy | 0.8718 |
+| Phishing precision | 0.9444 |
+| Phishing recall | 0.7776 |
+| Phishing F1 score | 0.8530 |
+| ROC AUC | 0.9331 |
 
 ## Confusion Matrix
 
 | Actual / Predicted | Legitimate | Phishing |
 |---|---:|---:|
-| Legitimate | 26,970 | 0 |
-| Phishing | 225 | 19,878 |
+| Legitimate | 26,050 | 920 |
+| Phishing | 4,470 | 15,633 |
 
 ## Current Limitations
 
