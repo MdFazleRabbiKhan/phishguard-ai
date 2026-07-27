@@ -1,0 +1,16 @@
+{
+  "available_clean_records": 235362,
+  "training_records": 60000,
+  "testing_records": 47073,
+  "majority_baseline_accuracy": 0.5729399018545663,
+  "accuracy": 0.9952201899177873,
+  "balanced_accuracy": 0.9944038203253246,
+  "precision_phishing": 1.0,
+  "recall_phishing": 0.9888076406506492,
+  "f1_phishing": 0.9943723268552562,
+  "roc_auc": 0.9984355116939383,
+  "true_negatives": 26970,
+  "false_positives": 0,
+  "false_negatives": 225,
+  "true_positives": 19878
+}
