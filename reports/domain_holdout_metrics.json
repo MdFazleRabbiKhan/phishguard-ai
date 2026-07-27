@@ -1,0 +1,20 @@
+{
+  "training_records": 60000,
+  "testing_records": 47072,
+  "training_hostnames": 57268,
+  "testing_hostnames": 44008,
+  "overlapping_hostnames": 0,
+  "training_phishing_rate": 0.42705,
+  "testing_phishing_rate": 0.42704792658055746,
+  "majority_baseline_accuracy": 0.5729520734194425,
+  "accuracy": 0.9948589394969408,
+  "balanced_accuracy": 0.9939806984379664,
+  "precision_phishing": 1.0,
+  "recall_phishing": 0.9879613968759328,
+  "f1_phishing": 0.993944247034683,
+  "roc_auc": 0.9983649627168405,
+  "true_negatives": 26970,
+  "false_positives": 0,
+  "false_negatives": 242,
+  "true_positives": 19860
+}
