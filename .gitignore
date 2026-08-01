@@ -22,6 +22,7 @@ data/processed/*
 
 # Trained model files
 models/*.joblib
+!models/phishguard_pipeline.joblib
 models/*.pkl
 
 # Jupyter temporary files

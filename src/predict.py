@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 from functools import lru_cache
+import hashlib
 import math
 from pathlib import Path
 
@@ -12,6 +13,9 @@ from src.security import ValidatedURL, validate_url
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MODEL_FILE = PROJECT_ROOT / "models" / "phishguard_pipeline.joblib"
+MODEL_CHECKSUM_FILE = (
+PROJECT_ROOT / "models" / "phishguard_pipeline.sha256"
+)
 PHISHING_THRESHOLD = 0.50
 
 
@@ -21,7 +25,45 @@ class PredictionError(RuntimeError):
 
 class ModelNotReadyError(PredictionError):
     """Raised when the trained model is unavailable."""
+def _calculate_sha256(file_path: Path) -> str:
+    """Calculate the SHA-256 checksum of a file."""
+    digest = hashlib.sha256()
 
+    with file_path.open("rb") as model_file:
+        for chunk in iter(lambda: model_file.read(1024 * 1024), b""):
+            digest.update(chunk)
+
+    return digest.hexdigest()
+
+def _verify_model_integrity() -> None:
+    """Verify that the trained model has not been modified."""
+
+    if not MODEL_CHECKSUM_FILE.is_file():
+        raise ModelNotReadyError(
+            "Model checksum file not found."
+        )
+
+    expected_checksum = MODEL_CHECKSUM_FILE.read_text(
+        encoding="utf-8"
+    ).strip().lower()
+
+    if (
+        len(expected_checksum) != 64
+        or any(
+            character not in "0123456789abcdef"
+            for character in expected_checksum
+        )
+    ):
+        raise ModelNotReadyError(
+            "The model checksum file is invalid."
+        )
+
+    actual_checksum = _calculate_sha256(MODEL_FILE)
+
+    if actual_checksum != expected_checksum:
+        raise ModelNotReadyError(
+            "Model integrity verification failed."
+        )
 
 @dataclass(frozen=True)
 class PredictionResult:
@@ -44,6 +86,8 @@ def load_model():
         raise ModelNotReadyError(
             "Trained model not found. Run: python -m src.train"
         )
+
+    _verify_model_integrity()
 
     try:
         model = joblib.load(MODEL_FILE)
