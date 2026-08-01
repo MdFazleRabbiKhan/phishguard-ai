@@ -10,6 +10,18 @@ Phishing websites imitate trusted services to steal passwords, payment informati
 
 This tool provides decision support only. It is not a security guarantee.
 
+## Live Demo
+
+Try the public application:
+
+[Open PhishGuard AI](https://phishguard-ai-vcfnrdpzfa4ifhfsa5byok.streamlit.app)
+
+The application analyzes only URL text. It does not open the submitted website or perform a network request.
+
+## Application Screenshot
+
+![PhishGuard AI prediction interface](docs/images/phishguard-demo.png)
+
 ## Main features
 
 - Machine-learning phishing detection
