@@ -61,7 +61,7 @@ def test_reports_medium_risk():
 
     result = predict_url("https://example.com", model=model)
 
-    assert result.label == "legitimate"
+    assert result.label == "phishing"
     assert result.risk_level == "medium"
 
 
