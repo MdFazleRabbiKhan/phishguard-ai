@@ -1,0 +1,107 @@
+{
+  "purpose": "Compare thresholds using hostname-separated validation data. The final hostname holdout was not used for threshold selection.",
+  "training_records": 60000,
+  "validation_records": 37658,
+  "overlapping_hostnames": 0,
+  "threshold_results": [
+    {
+      "threshold": 0.2,
+      "precision_phishing": 0.6733290839555637,
+      "recall_phishing": 0.9195995522944908,
+      "f1_phishing": 0.7774273248173263,
+      "balanced_accuracy": 0.7935270657282614,
+      "true_negatives": 14401,
+      "false_positives": 7175,
+      "false_negatives": 1293,
+      "true_positives": 14789
+    },
+    {
+      "threshold": 0.25,
+      "precision_phishing": 0.7486496407782265,
+      "recall_phishing": 0.8877005347593583,
+      "f1_phishing": 0.8122670763278428,
+      "balanced_accuracy": 0.8327777794301056,
+      "true_negatives": 16783,
+      "false_positives": 4793,
+      "false_negatives": 1806,
+      "true_positives": 14276
+    },
+    {
+      "threshold": 0.3,
+      "precision_phishing": 0.8134385489664919,
+      "recall_phishing": 0.8589105832607885,
+      "f1_phishing": 0.8355563620966034,
+      "balanced_accuracy": 0.8560403861798938,
+      "true_negatives": 18408,
+      "false_positives": 3168,
+      "false_negatives": 2269,
+      "true_positives": 13813
+    },
+    {
+      "threshold": 0.35,
+      "precision_phishing": 0.862722351121423,
+      "recall_phishing": 0.8323591593085438,
+      "f1_phishing": 0.8472688144819293,
+      "balanced_accuracy": 0.866819179209333,
+      "true_negatives": 19446,
+      "false_positives": 2130,
+      "false_negatives": 2696,
+      "true_positives": 13386
+    },
+    {
+      "threshold": 0.4,
+      "precision_phishing": 0.9027652643980871,
+      "recall_phishing": 0.8099738838452929,
+      "f1_phishing": 0.853855986365573,
+      "balanced_accuracy": 0.8724739645403699,
+      "true_negatives": 20173,
+      "false_positives": 1403,
+      "false_negatives": 3056,
+      "true_positives": 13026
+    },
+    {
+      "threshold": 0.45,
+      "precision_phishing": 0.9308070072564685,
+      "recall_phishing": 0.7896405919661733,
+      "f1_phishing": 0.8544322960470984,
+      "balanced_accuracy": 0.8729441372882405,
+      "true_negatives": 20632,
+      "false_positives": 944,
+      "false_negatives": 3383,
+      "true_positives": 12699
+    },
+    {
+      "threshold": 0.5,
+      "precision_phishing": 0.9513209581760764,
+      "recall_phishing": 0.7680014923516976,
+      "f1_phishing": 0.8498881816617926,
+      "balanced_accuracy": 0.8693548433208247,
+      "true_negatives": 20944,
+      "false_positives": 632,
+      "false_negatives": 3731,
+      "true_positives": 12351
+    },
+    {
+      "threshold": 0.55,
+      "precision_phishing": 0.9639058975185305,
+      "recall_phishing": 0.7439373212287029,
+      "f1_phishing": 0.8397557380501158,
+      "balanced_accuracy": 0.8615867547930686,
+      "true_negatives": 21128,
+      "false_positives": 448,
+      "false_negatives": 4118,
+      "true_positives": 11964
+    },
+    {
+      "threshold": 0.6,
+      "precision_phishing": 0.9736090099176332,
+      "recall_phishing": 0.720308419350827,
+      "f1_phishing": 0.8280200142959256,
+      "balanced_accuracy": 0.8528776060417464,
+      "true_negatives": 21262,
+      "false_positives": 314,
+      "false_negatives": 4498,
+      "true_positives": 11584
+    }
+  ]
+}

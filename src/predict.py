@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 import hashlib
 import math
+from src.settings import PHISHING_THRESHOLD
 from pathlib import Path
 
 import joblib
@@ -16,7 +17,7 @@ MODEL_FILE = PROJECT_ROOT / "models" / "phishguard_pipeline.joblib"
 MODEL_CHECKSUM_FILE = (
 PROJECT_ROOT / "models" / "phishguard_pipeline.sha256"
 )
-PHISHING_THRESHOLD = 0.50
+
 
 
 class PredictionError(RuntimeError):

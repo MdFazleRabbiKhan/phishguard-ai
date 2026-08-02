@@ -1,6 +1,7 @@
 """Evaluate PhishGuard using a hostname-separated data split."""
 
 import json
+from src.settings import PHISHING_THRESHOLD
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -149,8 +150,10 @@ def main():
     pipeline = build_pipeline()
     pipeline.fit(x_train, y_train)
 
-    predictions = pipeline.predict(x_test)
     phishing_scores = pipeline.predict_proba(x_test)[:, 1]
+    predictions = (
+    phishing_scores >= PHISHING_THRESHOLD
+    ).astype(int)
 
     tn, fp, fn, tp = confusion_matrix(
         y_test,
@@ -160,6 +163,7 @@ def main():
 
     metrics = {
         "training_records": int(len(x_train)),
+        "decision_threshold": float(PHISHING_THRESHOLD),
         "testing_records": int(len(x_test)),
         "training_hostnames": int(len(train_hostnames)),
         "testing_hostnames": int(len(test_hostnames)),
@@ -231,6 +235,7 @@ training and testing data. It provides a harder test on unseen websites.
 
 | Metric | Result |
 |---|---:|
+| Decision threshold | {metrics["decision_threshold"]:.2f} |
 | Majority baseline accuracy | {metrics["majority_baseline_accuracy"]:.4f} |
 | Accuracy | {metrics["accuracy"]:.4f} |
 | Balanced accuracy | {metrics["balanced_accuracy"]:.4f} |
